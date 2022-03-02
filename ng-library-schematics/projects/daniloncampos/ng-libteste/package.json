@@ -1,0 +1,25 @@
+{
+  "name": "@daniloncampos/ng-libteste",
+  "version": "0.0.1",
+  "schematics": "./src/schematics/collection.json",
+  "scripts": {
+    " build:lib ": "ng build @daniloncampos/ng-libteste",
+    " build:schematics ": "tsc -p projects/daniloncampos/ng-libteste/tsconfig.schematics.json",
+    "postbuild:schematics": "copyfiles projects/daniloncampos/ng-libteste/schematics/collection.json dist/daniloncampos/ng-libteste/schematics/ -f",
+    " build:all ": "npm run build:lib && npm run build:schematics",
+    " pack: lib ": "cd dist/aboudard/ng-lib && npm pack",
+    " lib:all ": "npm run build:all && npm run pack:lib"
+  },
+  "peerDependencies": {
+    "@angular/common": "^12.2.0",
+    "@angular/core": "^12.2.0",
+    "copyfiles": "file:../../../node_modules/copyfiles",
+    "typescript": "file:../../../node_modules/typescript"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "ng-add":{
+    "save": "dependencies"
+  }
+}
